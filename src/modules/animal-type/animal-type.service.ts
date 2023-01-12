@@ -12,12 +12,10 @@ export class AnimalTypeService {
     private readonly animalTypeModel: Model<AnimalType>,
   ) {}
 
-  async createAnimalType(
-    createArticleDto: CreateAnimalTypeDto,
-  ): Promise<AnimalType> {
-    const article = new this.animalTypeModel(createArticleDto);
-    await article.save();
-    return article;
+  async createAnimalType(data: CreateAnimalTypeDto): Promise<AnimalType> {
+    const animalType = new this.animalTypeModel(data);
+    await animalType.save();
+    return animalType;
   }
 
   async getAllAnimalTypes(): Promise<any> {

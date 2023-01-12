@@ -25,23 +25,23 @@ export class AnimalTypeController {
 
   @Get('/:id')
   @HttpCode(HttpStatus.OK)
-  async getOneArticles(@Param() params) {
-    return await this.animalTypeService.getOneAnimalType(params.id);
+  async getOneArticles(@Param('id') id: string) {
+    return await this.animalTypeService.getOneAnimalType(id);
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async createArticle(@Body() createArticleDto: CreateAnimalTypeDto) {
-    return await this.animalTypeService.createAnimalType(createArticleDto);
+  async createArticle(@Body() data: CreateAnimalTypeDto) {
+    return await this.animalTypeService.createAnimalType(data);
   }
 
   @Put(':id')
   @HttpCode(HttpStatus.OK)
   async updateWithAllParams(
     @Param('id') id: string,
-    @Body() createArticleDto: UpdateAnimalTypeDto,
+    @Body() data: UpdateAnimalTypeDto,
   ) {
-    return await this.animalTypeService.updateAnimalType(id, createArticleDto);
+    return await this.animalTypeService.updateAnimalType(id, data);
   }
 
   @Delete(':id')
